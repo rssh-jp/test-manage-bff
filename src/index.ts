@@ -113,6 +113,21 @@ app.put("/api/users/:id", async (request, reply) => {
   };
 });
 
+app.delete("/api/users/:id", async (request, reply) => {
+  const id = (request.params as { id: string }).id;
+
+  const res = await fetch(`${BE_BASE_URL}/api/users/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) {
+    const payload = (await res.json()) as { error?: string };
+    return reply.code(res.status).send({ error: payload.error ?? "backend request failed" });
+  }
+
+  return reply.code(204).send();
+});
+
 const start = async () => {
   try {
     await app.listen({ port: PORT, host: "0.0.0.0" });
