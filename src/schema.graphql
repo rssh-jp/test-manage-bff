@@ -1,0 +1,24 @@
+type User {
+  id: Int!
+  name: String!
+  email: String!
+}
+
+type UserList {
+  data: [User!]!
+}
+
+type UserPayload {
+  data: User
+}
+
+type Query {
+  users(query: String): UserList!
+  user(id: Int!): UserPayload!
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): UserPayload!
+  updateUser(id: Int!, name: String!, email: String!): UserPayload!
+  deleteUser(id: Int!): Boolean!
+}

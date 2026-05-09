@@ -1,0 +1,7 @@
+{
+  "sha256:f31d6e49921d96a7d72529bf0cd40b2171f14239af10e91421111e4c94858601": "mutation CreateUser($email: String!, $name: String!) { createUser(name: $name, email: $email) { data { email id name } } }",
+  "sha256:63e27fc6a126cfb52479a1b88708fafc548576064516ff285d16d90e7ab966d0": "mutation UpdateUser($email: String!, $id: Int!, $name: String!) { updateUser(id: $id, name: $name, email: $email) { data { email id name } } }",
+  "sha256:feb0b84d58033c0a9b561cecce47d9b94a2e82d8a59bbb7e0960919e66de432e": "mutation DeleteUser($id: Int!) { deleteUser(id: $id) }",
+  "sha256:2a1ab43b604c0ee0a36f544379f7e67ba15f270cbba4128516532f517cc29d1c": "query GetUsers($query: String) { users(query: $query) { data { email id name } } }",
+  "sha256:c59788ec78321861a55cf9c17eb009107eef1038ffac2bb168a87dd22e555a8a": "query GetUser($id: Int!) { user(id: $id) { data { email id name } } }"
+}
